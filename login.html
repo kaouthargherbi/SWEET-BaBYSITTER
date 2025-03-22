@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/resposive.css">
+    <script defer src="assets/js/script.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <img src="assets/logo.png" alt="Sweet Babysitter Logo">
+            <ul>
+                <li><a id="nav-home" href="index.html">Home</a></li>
+                <li><a id="nav-babysitters" href="babysitters.html">Babysitters</a></li>
+                <li><a id="nav-support" href="support.html">Support</a></li>
+                <li><a id="nav-login" href="login.html" class="btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <h1>Sign Up</h1>
+            <form id="signup-form">
+                <label for="account-type">Choose Account Type:</label>
+                <select id="account-type" name="account-type" required>
+                    <option value="parent">Parent</option>
+                    <option value="babysitter">Babysitter</option>
+                </select>
+
+                <div id="common-fields">
+                    <input type="text" name="family-name" placeholder="Family Name" required>
+                    <input type="text" name="first-name" placeholder="First Name" required>
+                    <input type="text" name="last-name" placeholder="Last Name" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <div id="parent-fields" class="hidden">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+
+                <div id="babysitter-fields" class="hidden">
+                    <input type="tel" name="phone" id="phone" placeholder="Phone Number (10 digits)" pattern="[0-9]{10}"
+                        required>
+                    <input type="text" name="ccp" id="ccp" placeholder="CCP Number (16-20 digits)"
+                        pattern="[0-9]{16,20}" required>
+                    <select name="wilaya" required>
+                        <option value="">Select Wilaya</option>
+                        <option value="Adrar">01) أدرار</option>
+                        <option value="Chlef">02) الشلف</option>
+                        <option value="Laghouat">03) الأغواط</option>
+                        <option value="Oum El Bouaghi">04) أم البواقي</option>
+                        <option value="Batna">05) باتنة</option>
+                        <option value="Bejaia">06) بجاية</option>
+                        <option value="Biskra">07) بسكرة</option>
+                        <option value="Bechar">08) بشار</option>
+                        <option value="Blida">09) البليدة</option>
+                        <option value="Bouira">10) البويرة</option>
+                        <option value="Tamanrasset">11) تمنراست</option>
+                        <option value="Tebessa">12) تبسة</option>
+                        <option value="Tlemcen">13) تلمسان</option>
+                        <option value="Tiaret">14) تيارت</option>
+                        <option value="Tizi Ouzou">15) تيزي وزو</option>
+                        <option value="Algiers">16) الجزائر العاصمة</option>
+                        <option value="Djelfa">17) الجلفة</option>
+                        <option value="Jijel">18) جيجل</option>
+                        <option value="Setif">19) سطيف</option>
+                        <option value="Saida">20) سعيدة</option>
+                        <option value="Skikda">21) سكيكدة</option>
+                        <option value="Sidi Bel Abbes">22) سيدي بلعباس</option>
+                        <option value="Annaba">23) عنابة</option>
+                        <option value="Guelma">24) قالمة</option>
+                        <option value="Constantine">25) قسنطينة</option>
+                        <option value="Medea">26) المدية</option>
+                        <option value="Mostaganem">27) مستغانم</option>
+                        <option value="Msila">28) المسيلة</option>
+                        <option value="Mascara">29) معسكر</option>
+                        <option value="Ouargla">30) ورقلة</option>
+                        <option value="Oran">31) وهران</option>
+                        <option value="El Bayadh">32) البيض</option>
+                        <option value="Illizi">33) إليزي</option>
+                        <option value="Bordj Bou Arreridj">34) برج بوعريريج</option>
+                        <option value="Boumerdes">35) بومرداس</option>
+                        <option value="El Tarf">36) الطارف</option>
+                        <option value="Tindouf">37) تندوف</option>
+                        <option value="Tissemsilt">38) تيسمسيلت</option>
+                        <option value="El Oued">39) الوادي</option>
+                        <option value="Khenchela">40) خنشلة</option>
+                        <option value="Souk Ahras">41) سوق أهراس</option>
+                        <option value="Tipaza">42) تيبازة</option>
+                        <option value="Mila">43) ميلة</option>
+                        <option value="Ain Defla">44) عين الدفلى</option>
+                        <option value="Naama">45) النعامة</option>
+                        <option value="Ain Temouchent">46) عين تموشنت</option>
+                        <option value="Ghardaia">47) غرداية</option>
+                        <option value="Relizane">48) غليزان</option>
+                        <option value="Timimoun">49) تيميمون</option>
+                        <option value="Bordj Badji Mokhtar">50) برج باجي مختار</option>
+                        <option value="Ouled Djellal">51) أولاد جلال</option>
+                        <option value="Beni Abbes">52) بني عباس</option>
+                        <option value="Ain Salah">53) عين صالح</option>
+                        <option value="Ain Guezzam">54) عين قزام</option>
+                        <option value="Touggourt">55) تقرت</option>
+                        <option value="Djanet">56) جانت</option>
+                        <option value="El M'Ghair">57) المغير</option>
+                        <option value="El Menia">58) المنيعة</option>
+                    </select>
+                </div>
+
+                <button type="submit">Sign Up</button>
+
+                <p>Or sign up with:</p>
+                <button type="button" class="social-login google">Sign up with Google</button>
+                <button type="button" class="social-login facebook">Sign up with Facebook</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('account-type').addEventListener('change', function () {
+            const parentFields = document.getElementById('parent-fields');
+            const babysitterFields = document.getElementById('babysitter-fields');
+
+            if (this.value === 'parent') {
+                parentFields.classList.remove('hidden');
+                babysitterFields.classList.add('hidden');
+            } else {
+                parentFields.classList.add('hidden');
+                babysitterFields.classList.remove('hidden');
+            }
+        });
+
+        // ✅ منع إدخال الأحرف وضبط الطول لحقل رقم الهاتف (10 أرقام فقط)
+        document.getElementById("phone").addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, ""); // السماح بالأرقام فقط
+            if (this.value.length > 10) {
+                this.value = this.value.slice(0, 10); // لا يسمح بأكثر من 10 أرقام
+            }
+        });
+        // ✅ منع إدخال الأحرف وضبط الطول لحقل CCP (بين 16 و 20 رقمًا)
+        document.getElementById("ccp").addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, ""); // السماح بالأرقام فقط
+            if (this.value.length > 20) {
+                this.value = this.value.slice(0, 20); // لا يسمح بأكثر من 20 رقمًا
+            }
+        });
+    </script>
+
+</body>
+
+</html>
