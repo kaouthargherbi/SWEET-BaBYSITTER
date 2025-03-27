@@ -1,26 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const photoUpload = document.getElementById("photo-upload");
+    const photoUpload = document.getElementById("upload-photo");
     const profileImg = document.getElementById("profile-img");
+    const bioField = document.getElementById("bio");
+    const saveButton = document.getElementById("save-profile");
 
-    // تحميل بيانات الجليسة من Local Storage
-    let babysitter = JSON.parse(localStorage.getItem("currentBabysitter")) || {
-        familyName: "Doe",
-        firstName: "Jane",
-        email: "janedoe@example.com",
-        phone: "+123456789",
-        price: "2000",
-        bio: "",
-        photo: "assets/images/default-avatar.png"
-    };
-
-    // عرض البيانات
-    document.getElementById("family-name").textContent = babysitter.familyName;
-    document.getElementById("first-name").textContent = babysitter.firstName;
-    document.getElementById("email").textContent = babysitter.email;
-    document.getElementById("phone").textContent = babysitter.phone;
-    document.getElementById("price").textContent = babysitter.price;
-    document.getElementById("bio").value = babysitter.bio || "";
-    profileImg.src = babysitter.photo;
+    // تحميل بيانات الجليسة من الخادم
+    fetch("get_babysitter_profile.php") // ملف PHP سيجلب بيانات الجليسة
+        .then(response => response.json())
+        .then(data => {
+            bioField.value = data.bio || "";
+            profileImg.src = data.photo || "assets/images/default-avatar.png";
+        })
+        .catch(error => console.error("Error loading profile:", error));
 
     // عند اختيار صورة جديدة
     photoUpload.addEventListener("change", function (event) {
@@ -29,23 +20,31 @@ document.addEventListener("DOMContentLoaded", function () {
             const reader = new FileReader();
             reader.onload = function (e) {
                 profileImg.src = e.target.result;
-                babysitter.photo = e.target.result;
             };
             reader.readAsDataURL(file);
         }
     });
 
-    // حفظ التعديلات
-    document.querySelector(".save-btn").addEventListener("click", function () {
-        babysitter.bio = document.getElementById("bio").value;
+    // عند الضغط على زر "Save"
+    saveButton.addEventListener("click", function () {
+        let bio = bioField.value;
+        let photo = photoUpload.files[0];
 
-        localStorage.setItem("currentBabysitter", JSON.stringify(babysitter));
+        let formData = new FormData();
+        formData.append("bio", bio);
+        if (photo) {
+            formData.append("photo", photo);
+        }
 
-        alert("Profile updated successfully!");
-        window.location.href = "profile.html";
+        fetch("edit_profile.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert("Profile updated successfully!");
+            window.location.href = "profile.html";
+        })
+        .catch(error => console.error("Error:", error));
     });
 });
-
-function changePhoto() {
-    document.getElementById("photo-upload").click();
-}
