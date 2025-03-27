@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babysitter Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>Sweet Babysitter</h2>
+    </nav>
+
+    <div class="profile-container">
+        <img id="sitter-photo" src="assets/images/default-profile.png" alt="Photo of Sitter">
+
+        <h2>BABYSITTER PROFILE</h2>
+
+        <p><strong>Family Name:</strong> <span id="family-name"></span></p>
+        <p><strong>First Name:</strong> <span id="first-name"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone Number:</strong> <span id="phone"></span></p>
+        <p><strong>Price:</strong> <span id="price"></span> DA</p>
+
+        <div class="bio-container">
+            <h3>Bio</h3>
+            <p id="bio">No bio available.</p>
+        </div>
+
+        <div class="rating">
+            <p>Rate This Babysitter:</p>
+            <span>⭐⭐⭐⭐⭐</span>
+        </div>
+
+        <button class="button" onclick="bookNow()">Book Now</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const index = urlParams.get("id");
+            const babysitters = JSON.parse(localStorage.getItem("babysitters")) || [];
+
+            if (babysitters[index]) {
+                const sitter = babysitters[index];
+                document.getElementById("sitter-photo").src = sitter.photo || "assets/images/default-profile.png";
+                document.getElementById("family-name").textContent = sitter.familyName || "N/A";
+                document.getElementById("first-name").textContent = sitter.firstName || "N/A";
+                document.getElementById("email").textContent = sitter.email || "N/A";
+                document.getElementById("phone").textContent = sitter.phone || "N/A";
+                document.getElementById("price").textContent = sitter.price || "N/A";
+                document.getElementById("bio").textContent = sitter.bio || "No bio available.";
+            }
+        });
+
+        function bookNow() {
+            alert("Redirecting to booking page...");
+            window.location.href = "booking.html";
+        }
+    </script>
+
+</body>
+
+</html>
