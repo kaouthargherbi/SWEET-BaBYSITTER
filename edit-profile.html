@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="edit-profile.css">
+</head>
+
+<body>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <h2>Sweet Babysitter</h2>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-photo">
+            <img id="profile-img" src="assets/images/default-avatar.png" alt="Photo of Sitter">
+            <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+            <button class="edit-photo-btn" onclick="changePhoto()">EDIT YOUR PHOTO</button>
+        </div>
+
+        <div class="profile-info">
+            <h1>MY PROFILE</h1>
+            <p><strong>FAMILY NAME:</strong> <span id="family-name">Loading...</span></p>
+            <p><strong>FIRST NAME:</strong> <span id="first-name">Loading...</span></p>
+            <p><strong>EMAIL:</strong> <span id="email">Loading...</span></p>
+            <p><strong>NUMBER:</strong> <span id="phone">Loading...</span></p>
+            <p><strong>THE PRICE:</strong> <span id="price">Loading...</span> DA</p>
+
+            <div class="bio-section">
+                <textarea id="bio" placeholder="Edit your bio"></textarea>
+            </div>
+
+            <button class="save-btn" onclick="saveProfile()">SAVE PROFILE</button>
+        </div>
+    </div>
+
+    <script src="edit-profile.js"></script>
+</body>
+
+</html>
