@@ -1,0 +1,76 @@
+/* تنسيق شريط التنقل */
+nav {
+    background-color: #f8f8f8;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+/* تنسيق الحاوية الأساسية */
+.profile-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* تنسيق صورة المربية */
+.profile-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.profile-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    object-fit: cover;
+}
+
+.edit-photo-btn {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.edit-photo-btn:hover {
+    background-color: #d81b60;
+}
+
+/* تنسيق المعلومات الشخصية */
+.profile-info {
+    max-width: 500px;
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.profile-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* تنسيق حقل تعديل السيرة الذاتية */
+.bio-section {
+    margin-top: 15px;
+}
+
+#bio {
+    width: 100%;
+    height: 100px;
+    border: 2px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+}
