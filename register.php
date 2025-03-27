@@ -13,12 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user_id"] = mysqli_insert_id($conn);
         $_SESSION["role"] = $role;
 
-        // توجيه الجليسات إلى تعديل الملف الشخصي
-        if ($role == "babysitter") {
-            header("Location: edit_profile.php");
-        } else {
-            header("Location: index.php"); // توجيه الآباء إلى الصفحة الرئيسية
-        }
+       if ($role == "babysitter") {
+    header("Location: edit-profile.html");
+} else {
+    header("Location: index.html");
+}
         exit();
     } else {
         echo "Error: " . mysqli_error($conn);
